@@ -1,0 +1,89 @@
+<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Save new user</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form #addUserForm='ngForm' (ngSubmit)='login(addUserForm)' novalidate='novalidate' autocomplete="off"
+        method="post" class="form-group">
+        <div class="modal-body mx-3">
+          <div class="md-form mb-4 ">
+            <i class="fas fa-user prefix grey-text"></i>
+            <input ngModel minlength="4" type="text" id="userName" class="form-control validate" #text name="userName">
+            <label data-error="wrong" data-success="right" for="userName">Full name</label>
+          </div>
+          <div class="md-form mb-4">
+            <i class="fas fa-user prefix grey-text"></i>
+            <input ngModel required minlength="4" type="text" id="nickName" class="form-control validate"
+              name="nickName">
+            <label data-error="wrong" data-success="right" for="nickName">Nick name</label>
+          </div>
+
+          <div class="md-form mb-5">
+            <i class="fas fa-envelope prefix grey-text"></i>
+            <input ngModel minlength="2" number required type="text" id="form-age" class="form-control validate"
+              name="age">
+            <label data-error="wrong" data-success="right" for="age">Your age</label>
+
+
+
+            <!-- <mat-form-field>
+              <mat-select placeholder="Chose your age">
+                <mat-option ngModel name="age" type="text" *ngFor="let quantity of quantities" [value]="quantity">
+                  {{quantity}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>  -->
+          </div>
+
+          <div class="md-form mb-5">
+            <i class="fas fa-envelope prefix grey-text"></i>
+            <input ngModel minlength="4" required type="email" id="form-email" class="form-control validate"
+              name="email">
+            <label data-error="wrong" data-success="right" for="form-email">Your email</label>
+          </div>
+
+          <div class="md-form mb-4">
+            <i class="fas fa-key prefix grey-text"></i>
+            <input ngModel minlength="4" required type="password" id="password" class="form-control validate"
+              name="password">
+            <label data-error="wrong" data-success="right" for="password">Your password</label>
+          </div>
+          <div class="md-form mb-4">
+            <i class="fas fa-image prefix grey-text"></i>
+            <!-- <input ngModel minlength="4" type="text" id="form-avatar" class="form-control validate" name="avatar"> -->
+
+            <!-- <label for="file">Choose File</label> -->
+            <input ngModel type="file" id="file" name="avatar" class="form-control validate">
+
+            <label data-error="wrong" data-success="right" for="form-avatar">Choose File</label>
+          </div>
+
+
+
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button class="btn btn-default ">
+            <input [disabled]="!addUserForm.form.valid" type="submit" name="submit" value="Save User" class="btn ">
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="text-center">
+  <a href="" class="btn btn-default btn-rounded mb-4 " data-toggle="modal" data-target="#modalLoginForm">Sing in</a>
+</div>
+
+
+<!-- <div *ngIf="">
+  <div>Получено от сервера:</div>
+  <div>Имя: {{name}}</div>
+  <div>Возраст: {{age}}</div>
+</div> -->
